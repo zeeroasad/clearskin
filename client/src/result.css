@@ -1,0 +1,92 @@
+:root {
+  --result-border: #34745f;
+  --result-tint: #eff7f1;
+  --result-chip: #e5f1e8;
+}
+
+html[data-theme='dark'] {
+  --result-border: #75b695;
+  --result-tint: #243a31;
+  --result-chip: #2b4439;
+}
+
+.result-card {
+  border: 2px solid var(--result-border);
+  box-shadow: 0 16px 42px #17322e1a;
+}
+
+.result-top {
+  align-items: center;
+  padding-bottom: 24px;
+  border-bottom: 2px solid var(--result-border);
+}
+
+.assessment-heading .eyebrow {
+  display: inline-flex;
+  align-items: center;
+  margin-bottom: 12px;
+  padding: 7px 11px;
+  border: 1px solid var(--result-border);
+  border-radius: 999px;
+  background: var(--result-chip);
+  color: var(--accent-dark);
+  font-weight: 700;
+}
+
+.assessment-heading h2 {
+  font-size: clamp(27px, 4vw, 34px);
+}
+
+.assessment-subtitle {
+  margin: 8px 0 0;
+  color: var(--muted);
+  font-size: 13px;
+}
+
+.confidence {
+  flex: 0 0 78px;
+  width: 78px;
+  height: 78px;
+  border: 2px solid var(--result-border);
+  background: var(--result-tint);
+}
+
+.label-grid {
+  margin: 24px 0;
+}
+
+.label-grid div {
+  border: 1px solid var(--result-border);
+  background: var(--result-tint);
+}
+
+.label-grid span,
+.reason span,
+.tips > span {
+  color: var(--accent-dark);
+  font-weight: 700;
+}
+
+.reason,
+.tips {
+  margin-top: 14px;
+  padding: 18px 20px;
+  border: 1px solid var(--result-border);
+  border-radius: 12px;
+  background: var(--result-tint);
+}
+
+.reason p,
+.tips ul {
+  color: var(--ink);
+}
+
+@media (max-width: 700px) {
+  .result-top {
+    padding-bottom: 20px;
+  }
+
+  .confidence {
+    margin-top: 18px;
+  }
+}
