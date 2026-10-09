@@ -10,3 +10,7 @@ export async function connectDatabase() {
   console.log('Connected to MongoDB.');
   return true;
 }
+
+export function isDatabaseConnected() {
+  return mongoose.connection.readyState === 1;
+}

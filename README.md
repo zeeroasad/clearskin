@@ -1,6 +1,6 @@
-# ClearSkin AI
+# Classification of Acne
 
-ClearSkin AI is a student project that uploads a face/skin image to a Node.js backend for an AI-estimated acne assessment. It classifies both configurable **severity** and **lesion type**. The result is an estimate, not a medical diagnosis.
+Classification of Acne is a student project that uploads a face/skin image to a Node.js backend for an AI-estimated acne assessment. It classifies both configurable **severity** and **lesion type**. The result is an estimate, not a medical diagnosis.
 
 ## Included features
 
@@ -43,6 +43,15 @@ npm run dev
 ```
 
 Vite normally runs at `http://localhost:5173`.
+
+## Connect a Railway MongoDB database
+
+1. Add a MongoDB service to the same Railway project as the backend.
+2. In the backend service's **Variables**, add `MONGODB_URI` with the Railway reference `${{ Mongo.MONGO_URL }}`. Replace `Mongo` with the exact name of your database service.
+3. Add the backend's other required variables (`GROQ_API_KEY`, `JWT_ACCESS_SECRET`, and `JWT_REFRESH_SECRET`) and set `CORS_ORIGIN` to the deployed frontend's public URL.
+4. Deploy the backend, then open `https://<your-backend-domain>/api/health`. Its `database` field should be `true` once MongoDB is connected.
+
+Railway's private `MONGO_URL` is preferred for services in the same project. The backend also accepts `MONGO_URL` directly and `MONGO_PUBLIC_URL` for an intentionally public connection. Do not put database URLs or secrets in frontend variables or share them in chat. If the health endpoint reports `database: false`, check that the variable is set on the backend service in the same environment and review that service's deployment logs for `MongoDB connection failed`.
 
 ## Evaluation
 

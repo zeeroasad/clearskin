@@ -1,3 +1,7 @@
+export function getMongoURI(env = process.env) {
+  return env.MONGODB_URI || env.MONGO_URL || env.MONGO_PUBLIC_URL;
+}
+
 export const appConfig = {
   port: Number(process.env.PORT ?? 4000),
   nodeEnv: process.env.NODE_ENV ?? 'development',
@@ -36,6 +40,6 @@ export const appConfig = {
     refreshTtl: process.env.REFRESH_TOKEN_TTL ?? '7d',
     cookieSecure: process.env.NODE_ENV === 'production'
   },
-  mongoURI: process.env.MONGODB_URI,
+  mongoURI: getMongoURI(),
   analysisRateLimit: { windowMs: 15 * 60 * 1000, max: 10 }
 };
